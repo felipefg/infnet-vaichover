@@ -1,0 +1,13 @@
+name: Esteira de Integracao do Projeto
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  integracao:
+    name: Job de Integracao
+    runs-on: ubuntu-22.04
+    steps:
+      - run: echo O processo de integracao funciona.
