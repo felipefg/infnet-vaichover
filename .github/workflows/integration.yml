@@ -10,4 +10,15 @@ jobs:
     name: Job de Integracao
     runs-on: ubuntu-22.04
     steps:
-      - run: echo O processo de integracao funciona.
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Unit Test
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements
+          python -m unittest
+      - name: BDD Acceptance Test
+        run: |
+          behave
